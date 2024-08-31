@@ -327,9 +327,10 @@ local function create_menu(opt)
       end
 
       for index, _ in pairs(wipes or {}) do
-        api.nvim_buf_call(buffers[index].bufnr, function()
-          api.nvim_buf_delete(buffers[index].bufnr, { force = true })
-        end)
+        api.nvim_buf_delete(buffers[index].bufnr, { force = true })
+        -- api.nvim_buf_call(buffers[index].bufnr, function()
+        --   api.nvim_buf_delete(buffers[index].bufnr, { force = true })
+        -- end)
         table.remove(content, index)
         table.remove(hi, index)
       end
